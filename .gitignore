@@ -1,5 +1,2 @@
 node_modules/*
-public
-server/logs/*
-.next/
-node_modules/
+.next/*

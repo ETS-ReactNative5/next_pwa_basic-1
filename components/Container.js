@@ -3,30 +3,24 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  CssBaseline,
   Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   Divider,
-  Paper,
   makeStyles,
-  Hidden,
   createStyles,
   IconButton
 } from "@material-ui/core";
 import Link from "next/link";
-import { IsOnline } from "./IsOnline";
-import { MdxTagParse } from "./MdxTagParse";
 
 import PagesIcon from "@material-ui/icons/Pages";
 import HomeIcon from "@material-ui/icons/Home";
 import MenuIcon from "@material-ui/icons/Menu";
 
 
-const pages = ["about", "material-theme", "my-mdx", "notification","home","users","login", "map"];
-const drawerWidth = 8 * 29;
+const pages = ["notification","home","users","login"];
 
 
 export const Container = ({ children }) => {
@@ -59,7 +53,6 @@ export const Container = ({ children }) => {
 
   return (
     <div className={classes.container}>
-      <CssBaseline />
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <IconButton
@@ -71,8 +64,7 @@ export const Container = ({ children }) => {
         </Toolbar>
       </AppBar>
 
-      <nav className={classes.nav}>
-        <Hidden smUp>
+      <nav>
           <Drawer
             variant="temporary"
             anchor="left"
@@ -84,22 +76,15 @@ export const Container = ({ children }) => {
               keepMounted: true
             }}
           />
-        </Hidden>
-
-        <Hidden xsDown>
-          <Drawer
-            open
-            variant="permanent"
-            classes={{ paper: classes.drawer }}
-            children={content}
-          />
-        </Hidden>
       </nav>
 
-      <Paper className={classes.paper}>
-        <MdxTagParse children={children} />
-        <IsOnline />
-      </Paper>
+      <div className={classes.content}>
+        {children}
+        
+      </div>
+      <div className={classes.footer}>
+          Copyright &#169; Eternus 2020
+        </div>
     </div>
   );
 };
@@ -107,27 +92,28 @@ export const Container = ({ children }) => {
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      display: "flex",
-      marginTop: theme.spacing(8)
+     paddingTop: theme.spacing(7)
+    },
+    content:{
+      height:'84vh'
     },
     toolbar: {
-      justifyContent: "space-between"
-    },
-    drawer: {
-      width: drawerWidth
-    },
-    paper: {
-      flexGrow: 1,
-      padding: theme.spacing(2),
-      margin: theme.spacing(3)
-    },
-    nav: {
-      [theme.breakpoints.up("sm")]: {
-        width: drawerWidth
-      }
+      justifyContent: "space-between",
+      height:'10vh'
     },
     icon: {
       color: theme.palette.common.white
+    },
+    drawer:{
+      width:"250px"
+    },
+    footer:{
+      backgroundColor:"#3f51b5",
+      color:"white",
+      display:"flex",
+      justifyContent:"center",
+      height:"6vh",
+      alignItems:"center",
     }
   })
 );

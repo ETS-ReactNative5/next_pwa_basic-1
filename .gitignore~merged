@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-.next/
-node_modules
-=======
-node_modules/*
-public/*
-.next/*
->>>>>>> 61a680e2bd85e705d631ece436befe475f76b9f5

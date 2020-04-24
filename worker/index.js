@@ -6,8 +6,8 @@ util()
 
 
 
-const CACHE_STATIC_NAME = 'static-v27';
-const CACHE_DYNAMIC_NAME = 'dynamic-v5';
+const CACHE_STATIC_NAME = 'static-v29';
+const CACHE_DYNAMIC_NAME = 'dynamic-v7';
 const INDEXDB_DYNAMIC_NAME = "linkup-db";
 const STATIC_FILES = [
     '/',
